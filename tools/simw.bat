@@ -8,9 +8,11 @@
 @echo off
 
 :: Move to the build/ directory to save all outputs
+@echo off
 cd ..
 mkdir build
 cd build
+@echo on
 
 :: Find any macro with the script's first parameter as name
 :: and then use it
@@ -31,5 +33,7 @@ echo Running simulator gui56000
 del %1.tmp
 
 :: Return to the corresponding folder
+@echo off
 cd ..
-cd compiler
+cd tools
+@echo on

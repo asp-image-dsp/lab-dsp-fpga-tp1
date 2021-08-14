@@ -7,9 +7,11 @@
 ::-------------------------------------------------------------------
 
 :: Move to the build/ directory to save all outputs
+@echo off
 cd ..
 mkdir build
 cd build
+@echo on
 
 :: Execute the assembly compiler
 @echo off
@@ -20,5 +22,8 @@ del *.cln
 del *.lod
 
 :: Return to the corresponding folder
+@echo off
 cd ..
-cd compiler
+rmdir build
+cd tools
+@echo on

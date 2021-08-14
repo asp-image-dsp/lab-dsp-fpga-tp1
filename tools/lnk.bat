@@ -7,17 +7,21 @@
 ::-------------------------------------------------------------------
 
 :: Move to the build/ directory to save all outputs
+@echo off
 cd ..
 mkdir build
 cd build
+@echo on
 
 :: Linker
 :: Generate an object with COFF format (binary)
-"..\compiler\dsplnk.exe" ..\src\%1
+"..\compiler\dsplnk.exe" ..\build\%1
 
 :: Translate the COFF format to LOD format (ASCII)
 "..\compiler\cldlod.exe" ..\build\%1.cld > "%1.lod"
 
 :: Return to the corresponding folder
+@echo off
 cd ..
-cd compiler
+cd tools
+@echo on
