@@ -1,0 +1,7 @@
+/* $Id: dsplib.txt,v 1.1 1998/01/09 21:37:15 jay Exp $ */
+dsplib, Version 6.2, Jan 06 1998
+1. The only change is to the version number, in preparation for
+the CD distribution release.
+====
+
+

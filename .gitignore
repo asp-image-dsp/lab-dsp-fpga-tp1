@@ -1,0 +1,8 @@
+# Ignore all files that can be generated using the 
+# DSP56K toolchain (compiler, linker, among others)
+*.obj
+*.lod
+*.lst
+*.cld
+*.cln
+*.tmp

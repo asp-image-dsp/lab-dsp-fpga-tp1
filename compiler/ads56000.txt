@@ -1,0 +1,24 @@
+/* $Id: ads56000.txt,v 1.5 1998/02/13 19:48:04 taskin Exp $ */
+ADS56000, Version 6.2.1, Feb 12, 1998
+1. Corrected the incorrect behavior in the preferences dialog.
+====
+ADS56000, Version 6.2, Jan 12, 1998
+1. Corrected the problem related withe the "more" command in the GUI.
+====
+ADS56000, Version 6.2, Jan 06, 1998
+1. The only change is to the version number, in preparation for
+the CD distribution release.
+====
+ADS56100, Version 6.1.8, Jan 02, 1998
+1.. Corrected incorrect l-memory window contents
+====
+ADS56100, Version 6.1.7, Dec 15, 1997
+1. Corrected command converter reset problem.  This problem occured when there
+	     were no devices connected to the CC and user issued a "cforce r"
+	     command.
+2. Replaced  the main program toolbar buttons bitmaps in the GUI.
+3. Corrected the "system" command on the GUI version.
+4. Added     command for setting the comand converter speed.
+====
+
+

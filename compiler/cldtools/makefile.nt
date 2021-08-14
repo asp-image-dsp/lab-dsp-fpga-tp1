@@ -1,0 +1,77 @@
+#NMAKE File
+#"make dist" and "make clean" are performed on a unix system
+
+#DEBUG= -Z7
+DEBUG=
+CC= cl -c
+CCLD= cl
+CFLAGS=-nologo -ML -W1 -Gd -GX -Od -Op -I../mcoffinc -DMSDOS -DWIN32 -D_CONSOLE $(DEBUG)
+
+LIBS=Kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib
+
+LDFLAGS=$(CFLAGS) $(LIBS)
+
+# Host name
+H	=nt
+
+# Object and executable directory
+O	=obj/$(H)
+
+# The dist make should be done on the sun4
+INSTALL		= /bin/mv
+CLASDIR=clas566
+#CLASDIR=clas96
+#CLASDIR=clas16
+
+DROOT=../..
+#DROOT=/usr1/dsp/software
+DIST=dist
+DISTDIR=$(DROOT)/$(DIST)/$(H)/$(CLASDIR)
+DISTSRC=cldinfo.c cldlod.c cofdmp.c srec.c strip.c tiohist.c cofdmp.h srec.h strip.h makefile.nt
+DISTBIN=$(O)/cldinfo.exe $(O)/cldlod.exe $(O)/cofdmp.exe $(O)/srec.exe $(O)/strip.exe $(O)/tiohist.exe
+DISTOBJ=$(O)/cldinfo.obj $(O)/cldlod.obj $(O)/cofdmp.obj $(O)/srec.obj $(O)/strip.obj $(O)/tiohist.obj
+DBIN=$(DISTDIR)/bin
+DTOOL=$(DISTDIR)/cldtools
+
+
+.c{$(O)}.obj:
+	$(CC) $(CFLAGS) -Fo$@ $<
+
+.obj.exe:
+	$(CCLD) $< $(LDFLAGS) -Fe$@ 
+
+
+all: $(DISTOBJ) $(DISTBIN)
+
+
+# unix to dos source file conversion 
+ud: ud.c
+	cc -o ud ud.c
+
+# copy distribution files to $(DROOT)/$(DIST)/clasnn/bin and $(DROOT)/$(DIST)/clasnn/nt
+$(DIST): ud
+	test -d $(DROOT)/$(DIST) || mkdir $(DROOT)/$(DIST)
+	test -d $(DROOT)/$(DIST)/$(H) || mkdir $(DROOT)/$(DIST)/$(H)
+	test -d $(DISTDIR) || mkdir $(DISTDIR)
+	test -d $(DBIN) || mkdir $(DBIN)
+	test -d $(DTOOL) || mkdir $(DTOOL)
+	cp $(DISTBIN) $(DBIN)
+	cp $(DISTSRC) $(DTOOL)
+
+# use unix make to remove obj/nt
+clean: obdir
+	rm -f obj/$(H)/*
+
+obdir: 
+	test -d obj || mkdir obj
+	test -d obj/$(H) || mkdir obj/$(H)
+
+
+
+
+
+
+
+
+
+

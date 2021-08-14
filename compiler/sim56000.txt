@@ -1,0 +1,20 @@
+/* $Id: sim56000.txt,v 1.6 1998/01/23 18:02:41 jay Exp $ */
+SIM56000, Version 6.2.1, Jan 22 1998
+1. Fixed disassembly window incorrect instruction word fetches.
+====
+SIM56000, Version 6.2, Jan 12, 1998
+1. Corrected the problem related withe the "more" command in the GUI.
+====
+SIM56000, Version 6.2, Jan 06, 1998
+1. The only change is to the version number, in preparation for
+the CD distribution release.
+====
+SIM56000, Version 6.1.23, Jan 02 1998
+1. Corrected incorrect l-memory window contents
+====
+SIM56000, Version 6.1.22, Dec 12 1997
+1. Replaced  the main program toolbar buttons bitmaps in the GUI.
+====
+SIM56000, Version 6.1.20, Sept 10 1997
+====
+
