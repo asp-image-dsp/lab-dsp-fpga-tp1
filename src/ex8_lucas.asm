@@ -36,18 +36,20 @@
 ; vect_max
 ; Given the input vectors pointed by R0 and R4 address registers, the
 ; subroutine generates a new vector where the elements are chosen from
-; the absolute maximum value when comparing R0 and R4 element by element
+; the absolute maximum value when comparing R0 and R4 element by element.
+; The results is overwritten in the input vector pointed by R4.
 ;
 ; @param R0 Pointer to the first vector
 ; @param R4 Pointer to the second vector
 ; @param N0 Dimension of the vectors      
+;
+; Internal memory used: B, X0
 ; ====================================================================
 vect_max  DO      N0,vmel
           MOVE    X:(R0)+,X0     Y:(R4),B   ; Move X and Y elements to A and B accumulators respectively
-          CMPM    X0,B                      ; Compute |B| - |A|
-          TGE     B,A                       ; If |B| > |A|, save B
-          TLE     X0,A                      ; If |A| > |B|, save A
-          MOVE    A,Y:(R4)+                 ; Save result
+          CMPM    X0,B                      ; Compute |B| - |X0|
+          TLE     X0,B                      ; If |X0| > |B|, save X0
+          MOVE    B,Y:(R4)+                 ; Save result
 vmel      RTS
           
 ; ====================================================================
